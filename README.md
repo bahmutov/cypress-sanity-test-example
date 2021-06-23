@@ -39,3 +39,19 @@ it('catches page exceptions', () => {
 ```
 
 ![Reference error fails the test](./images/reference-error.png)
+
+### Ignoring errors
+
+If you want to ignore an application error, define a listener
+
+```js
+it('ignores all page errors', () => {
+  // https://on.cypress.io/catalog-of-events#Uncaught-Exceptions
+  cy.on('uncaught:exception', () => false)
+  cy.visit('/')
+})
+```
+
+![Ignoring app error](./images/ignore-error.png)
+
+**Tip:** you can ignore specific errors, see other tests.
