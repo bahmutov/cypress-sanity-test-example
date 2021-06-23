@@ -54,4 +54,33 @@ it('ignores all page errors', () => {
 
 ![Ignoring app error](./images/ignore-error.png)
 
-**Tip:** you can ignore specific errors, see other tests.
+**Tip:** you can ignore specific errors, see other tests and video [Filtering app errors in Cypress tests](https://www.youtube.com/watch?v=DwVezYq4zPM).
+
+### Catching 404
+
+Cypress can spy on network calls using [cy.intercept](https://on.cypress.io/intercept) command. We can see if any of the responses are 404. First, we can spy on the single problematic request.
+
+```js
+it('detects a single 404', () => {
+  cy.intercept('**/scrollreveal.min.js').as('resource')
+  cy.visit('/')
+  cy.wait('@resource').its('response.statusCode').should('be.lt', 400)
+})
+```
+
+![The resource is not found](./images/404.png)
+
+We can also confirm that every resource is successful
+
+```js
+it('detects any 404', () => {
+  // https://on.cypress.io/intercept
+  cy.intercept('*', (req) =>
+    // assert the response
+    req.continue((res) => expect(res.statusCode, req.url).to.be.lt(400)),
+  )
+  cy.visit('/')
+})
+```
+
+![Checking every resource status code](./images/all.png)
