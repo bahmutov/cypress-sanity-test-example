@@ -26,7 +26,7 @@ Then start the site with `npm start`. You can open Cypress with `npm run cy:open
 
 ## Tests
 
-You can find all tests in [cypress/integration/spec.js](./cypress/integration/spec.js) file.
+You can find all tests in [cypress/integration/spec.js](./cypress/integration/spec.js) file. To verify failing tests, I run the tests using [cypress-expect](https://github.com/bahmutov/cypress-expect) utility.
 
 ### Catching errors
 

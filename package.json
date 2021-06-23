@@ -5,16 +5,19 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "test": "cypress run",
+    "test": "cypress-expect --expect expected.json run",
     "start": "serve public",
     "cy:open": "cypress open",
-    "dev": "start-test 5000 cy:open"
+    "cy:run": "cypress run",
+    "dev": "start-test 5000 cy:open",
+    "headless": "start-test 5000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^7.5.0",
+    "cypress-expect": "^2.4.1",
     "prettier": "^2.3.1",
     "serve": "^12.0.0",
     "start-server-and-test": "^1.12.5"

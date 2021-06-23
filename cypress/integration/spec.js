@@ -28,7 +28,7 @@ it('detects a single 404', () => {
   cy.wait('@resource').its('response.statusCode').should('be.lt', 400)
 })
 
-it.only('detects any 404', () => {
+it('detects any 404', () => {
   // we are not interested in app's errors
   cy.on('uncaught:exception', () => false)
   // https://on.cypress.io/intercept

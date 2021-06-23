@@ -1,0 +1,7 @@
+{
+  "catches page exceptions": "fail",
+  "ignores all page errors": "pass",
+  "ignores specific error": "pass",
+  "detects a single 404": "fail",
+  "detects any 404": "fail"
+}
