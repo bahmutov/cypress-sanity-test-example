@@ -1,3 +1,5 @@
 /// <reference types="cypress" />
 
-it('works', () => {})
+it('catches page exceptions', () => {
+  cy.visit('/')
+})
